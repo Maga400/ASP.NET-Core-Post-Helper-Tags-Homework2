@@ -1,0 +1,51 @@
+﻿@model UpdateFoodViewModel
+
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+    <section style="display:flex;justify-content:center">
+
+        <form style="width:70%;padding:20px 0px;text-align:start;border-radius:10px;border:5px solid black;" asp-controller="Home" asp-action="Update" method="post">
+            
+            @Html.AntiForgeryToken()
+            
+            <section style="width:100%">
+                <label class="label-des" asp-for="Food.Name"></label>
+                <input class="input-des" asp-for="Food.Name" />
+                
+            </section>
+            <section style="width:100%">
+                <label class="label-des" asp-for="Food.Price"></label>
+                <input class="input-des" asp-for="Food.Price" />
+            </section>
+            <section style="width:100%;margin-top:20px;">
+                <label class="label-des" asp-for="Food.Discount"></label>
+                <input class="input-des" asp-for="Food.Discount" />
+            </section>
+            <section style="width:100%;margin-top:20px;">
+                <label class="label-des" asp-for="Food.Description"></label>
+                <input class="input-des" asp-for="Food.Description" />
+                
+            </section>
+            <input type="hidden" asp-for="Food.Id" />
+
+            <section style="width:100%;text-align:center">
+                <button type="submit" style="width:50%;padding:10px;margin-top:50px;
+                background-color:blue;color:white;font-size:1.5em;border-radius:10px;border:2px solid black">
+                    UPDATE
+                </button>
+
+            </section>
+        </form>
+    </section>
+</body>
+</html>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

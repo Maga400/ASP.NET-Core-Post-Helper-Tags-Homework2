@@ -1,0 +1,29 @@
+﻿@model FoodViewModel
+
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+
+    <section class="w-50 m-auto text-center">
+
+        <a href="/home/add" class="w-100 bg-primary m-1 p-2 text-center text-decoration-none" style="color:white;font-size:1.5em;border:2px solid black;border-radius:10px;">ADD</a>
+
+        @foreach (var item in Model.Foods)
+        {
+            <section class="text-left p-4 bg-secondary m-3" style="border-radius:10px;border:2px solid black;color:white;margin:auto">
+                <h1>Name : @item.Name</h1>
+                <h1>Price : @item.Price</h1>
+                <h1>Discount : @item.Discount</h1>
+                <h1>Description : @item.Description</h1>
+                <section style="display:flex;justify-content:start;">
+                    <a asp-controller="Home" asp-action="DeleteFood" asp-route-id="@item.Id" class="p-2 w-50 bg-danger" style="border:2px solid black;border-radius:5px;color:white;text-decoration:none;text-align:center">DELETE</a>
+                    <a asp-controller="Home" asp-action="Update" asp-route-id="@item.Id" class="p-2 w-50 ml-3 bg-success" style="border:2px solid black;border-radius:5px;color:white;text-decoration:none;text-align:center">UPDATE</a>
+                </section>
+            </section>
+        }
+    </section>
+</body>
+</html>
